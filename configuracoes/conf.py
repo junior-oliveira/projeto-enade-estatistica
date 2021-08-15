@@ -41,7 +41,14 @@ VAR_CURSO_GRUPO = 'CURSO_GRUPO'
 VAR_PESSOA_CONCLUINTE = 'PESSOA_CONCLUINTE'
 
 # Bases de dados
-BASES_DE_DADOS = {'2005': 'microdados_enade_2005.csv', '2008': 'microdados_enade_2008.csv', '2011': 'MICRODADOS_ENADE_2011.txt', '2014': 'MICRODADOS_ENADE_2014.txt', '2017': 'MICRODADOS_ENADE_2017.txt'}
+BASES_DE_DADOS = {'2005': 'base_de_dados/microdados_enade_2005.csv', 
+                    '2008': 'base_de_dados/microdados_enade_2008.csv', 
+                    '2011': 'base_de_dados/MICRODADOS_ENADE_2011.txt', 
+                    '2014': 'base_de_dados/MICRODADOS_ENADE_2014.txt', 
+                    '2017': 'base_de_dados/MICRODADOS_ENADE_2017.txt'}
+
+# Arquivo com os rótulos novos a considerar
+ARQUIVO_ROTULOS_A_CONSIDERAR = 'rotulos_colunas/rotulos_colunas_todas_bases.xlsx'
 
 # Variável que representa a categoria da IES (publica, privada, especial)
 VAR_IES_CATEGORIA = 'IES_CATEGORIA'
