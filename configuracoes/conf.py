@@ -6,8 +6,8 @@ LISTA_VAR_INTERESSE = ['ANO', 'IES_CATEGORIA', 'IES_TIPO', 'CURSO_GRUPO', 'CURSO
                         'PROVA_FE_NOTABRUTA', 'PROVA_NOTABRUTA', 'QUESTIONARIO_PERCEPCAO_Q1', 'QUESTIONARIO_PERCEPCAO_Q2', 
                         'QUESTIONARIO_PERCEPCAO_Q3', 'QUESTIONARIO_PERCEPCAO_Q4', 'QUESTIONARIO_PERCEPCAO_Q5', 
                         'QUESTIONARIO_PERCEPCAO_Q6', 'QUESTIONARIO_PERCEPCAO_Q7', 'QUESTIONARIO_PERCEPCAO_Q8', 
-                        'QUESTIONARIO_PERCEPCAO_Q9', 'QUESTIONARIO_SOCIO_EST_CIVIL', 
-                        'QUESTIONARIO_SOCIO_RENDA']
+                        'QUESTIONARIO_PERCEPCAO_Q9', 'EST_CIVIL', 
+                        'RENDA', 'SITUACAO_TRABALHO', 'CH_TRABALHO', 'ENSINO_MEDIO', 'TIPO_EM', 'HORAS_ESTUDO']
 
 # Variáveis de presença que devem ser consideradas como 555 em todas as bases de dados
 # Para considerar outros tipos de variáveis, acrescente aqui
@@ -39,6 +39,9 @@ VAR_CURSO_GRUPO = 'CURSO_GRUPO'
 
 # Variável que representa se um aluno é concluinte
 VAR_PESSOA_CONCLUINTE = 'PESSOA_CONCLUINTE'
+
+# Variável que representa a renda de um aluno
+VAR_RENDA = 'RENDA'
 
 # Bases de dados
 BASES_DE_DADOS = {'2005': 'base_de_dados/microdados_enade_2005.csv', 
