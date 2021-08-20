@@ -27,9 +27,7 @@ def renomearColunas(ano):
 
     base_de_dados.columns = lista_novos_rotulos
 
-    # Altera os valores da base 2017, variável PESSOA_CONCLUINTE (concluinte de 1 para 0)
-    if (ano == '2017'):
-        base_de_dados[conf.VAR_PESSOA_CONCLUINTE] = base_de_dados[conf.VAR_PESSOA_CONCLUINTE].replace([0, 1], [1, 0])
+    
 
     return base_de_dados
 
@@ -83,6 +81,10 @@ def get_base_filtrada(ano):
     # Padroniza o intervalo da categoria da IES
     df_base_de_dados = padronizar_interv_cat_ies(df_base_de_dados)
 
+    # Altera os valores da base 2017, variável PESSOA_CONCLUINTE (concluinte de 1 para 0)
+    if (ano == '2017'):
+        df_base_de_dados[conf.VAR_PESSOA_CONCLUINTE] = df_base_de_dados[conf.VAR_PESSOA_CONCLUINTE].replace([0, 1], [1, 0])
+
     # Retorna as provas dos estudantes concluintes
     df_base_de_dados = df_base_de_dados.loc[df_base_de_dados[conf.VAR_PESSOA_CONCLUINTE] == 0]
 
@@ -107,6 +109,9 @@ def get_base_filtrada(ano):
     df_base_de_dados = padronizar_sexo(df_base_de_dados)
 
     df_base_de_dados = padronizar_notas(df_base_de_dados)
+
+    # Exclui as linhas nas quais a nota geral do aluno no enade esteja vazia
+    df_base_de_dados = df_base_de_dados[df_base_de_dados[conf.PROVA_NOTABRUTA].notna()]
 
     return df_base_de_dados
 
@@ -185,6 +190,8 @@ def get_base_completa():
                                df_base_de_dados_2011, df_base_de_dados_2014, df_base_de_dados_2017],
                               ignore_index=True)
 
+    # Converte as colunas com valores categóricos de Object para Category
+    base_completa = converter_para_categorico(base_completa, conf.LISTA_VAR_CONVERT_CATEGORICO)
     return base_completa
 
 
@@ -258,13 +265,32 @@ def padronizar_tipo_ens_medio(ano, df):
 
 def padronizar_horas_estudo(ano, df):
     ''''
-        Padroniza a variável HORAS_ESTUDO.
+        Padroniza a variável HORAS_ESTUDO semanais, excetuando aulas.
         Intervalo considerado:
             A = Nenhuma, apenas assisto às aulas.
-            B = Estuda pelo menos uma hora, excetuando aulas.
+            B = 1 a 8 horas.
+            C = mais de 8 horas.
             . = nulos, outros.
     '''
-    if ano == '2005' or ano == '2008' or ano == '2011' or ano == '2014' or ano == '2017':
-        df['HORAS_ESTUDO'] = df['HORAS_ESTUDO'].replace(['C','D','E'], 'B')
+    if ano == '2005' or ano == '2008':
+        df['HORAS_ESTUDO'] = df['HORAS_ESTUDO'].replace(['C','D'], 'B') # 1 a 8 horas
+        df['HORAS_ESTUDO'] = df['HORAS_ESTUDO'].replace(['E'], 'C') # mais de 8 horas
         df['HORAS_ESTUDO'] = df['HORAS_ESTUDO'].replace(['*'], '.')      
+    if ano == '2011' or ano == '2014' or ano == '2017':
+        df['HORAS_ESTUDO'] = df['HORAS_ESTUDO'].replace(['C'], 'B')
+        df['HORAS_ESTUDO'] = df['HORAS_ESTUDO'].replace(['D','E'], 'C')
+        df['HORAS_ESTUDO'] = df['HORAS_ESTUDO'].replace(['*'], '.')      
+    return df
+
+# Converte as colunas com valores categóricos de Object para Category e substitui os  * e NaN por .
+def converter_para_categorico(df, lista):
+    '''
+        Converte uma lista de colunas para variáveis categóricas e substitui '*' e 'NaN' por '.' \
+        Retorna o dataframe convertido
+    '''
+
+    for col in lista:
+        df[col] = df[col].astype('category')
+        df[col] = df[col].replace(['*'], '.') 
+        df[col] = df[col].fillna('.')
     return df

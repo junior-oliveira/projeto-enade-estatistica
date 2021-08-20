@@ -15,6 +15,12 @@ VAR_PRESENCA =  ['PROVA_DISCENTE_PRESENTE_ENADE', 'PROVA_DISCENTE_FEZ_PROVA',
                 'PROVA_FG_OBJETIVAS_DISCENTE_FEZ_PROVA', 'PROVA_FG_DISCURSIVAS_DISCENTE_FEZ_PROVA', 
                 'PROVA_FE_OBJETIVAS_DISCENTE_FEZ_PROVA', 'PROVA_FE_DISCURSIVA_DISCENTE_FEZ_PROVA']
 
+# Lista de variáveis a serem convertidas para variáveis categóricas
+LISTA_VAR_CONVERT_CATEGORICO = ['QUESTIONARIO_PERCEPCAO_Q1', 'QUESTIONARIO_PERCEPCAO_Q2', 'QUESTIONARIO_PERCEPCAO_Q3', 
+                                'QUESTIONARIO_PERCEPCAO_Q4', 'QUESTIONARIO_PERCEPCAO_Q5', 'QUESTIONARIO_PERCEPCAO_Q6', 
+                                'QUESTIONARIO_PERCEPCAO_Q7', 'QUESTIONARIO_PERCEPCAO_Q8', 'QUESTIONARIO_PERCEPCAO_Q9', 
+                                'RENDA', 'SITUACAO_TRABALHO', 'CH_TRABALHO', 'ENSINO_MEDIO', 'TIPO_EM', 'HORAS_ESTUDO', 
+                                'EST_CIVIL']
 
 # Lista de cursos a serem considerados no experimento
 ## ENADE 2005 ##
@@ -42,6 +48,9 @@ VAR_PESSOA_CONCLUINTE = 'PESSOA_CONCLUINTE'
 
 # Variável que representa a renda de um aluno
 VAR_RENDA = 'RENDA'
+
+# Variável que representa a nota geral na prova do enade
+PROVA_NOTABRUTA = 'PROVA_NOTABRUTA'
 
 # Bases de dados
 BASES_DE_DADOS = {'2005': 'base_de_dados/microdados_enade_2005.csv', 
