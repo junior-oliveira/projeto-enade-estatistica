@@ -1,6 +1,6 @@
 # Variáveis de interesse para serem utilizadas após filtragem 
 # A variável 'CURSO_MODALIDADE' não foi considerada pois não existe nas bases 2005 e 2008
-LISTA_VAR_INTERESSE = ['ANO', 'PESSOA_CURSO_ANO_ENTRADA', 'IES_CATEGORIA', 'IES_TIPO', 'CURSO_GRUPO', 'CURSO_REGIAO', 'CURSO_UF',
+LISTA_VAR_INTERESSE = ['ANO', 'IES_COD_MEC', 'PESSOA_CURSO_ANO_ENTRADA', 'IES_CATEGORIA', 'IES_TIPO', 'CURSO_GRUPO', 'CURSO_REGIAO', 'CURSO_UF',
                         'PESSOA_IDADE', 'PESSOA_SEXO', 'PROVA_FG_OBJETIVAS_NOTABRUTA', 'PROVA_FG_DISCURSIVAS_NOTABRUTA', 
                         'PROVA_FG_NOTABRUTA', 'PROVA_FE_OBJETIVAS_NOTABRUTA', 'PROVA_FE_DISCURSIVAS_NOTABRUTA', 
                         'PROVA_FE_NOTABRUTA', 'PROVA_NOTABRUTA', 'QUESTIONARIO_PERCEPCAO_Q1', 'QUESTIONARIO_PERCEPCAO_Q2', 
@@ -37,7 +37,7 @@ LISTA_VAR_CONVERT_CATEGORICO = ['QUESTIONARIO_PERCEPCAO_Q1', 'QUESTIONARIO_PERCE
 # Não utilizado (verificar necessidade)
 # 6409 = Tecnologia em Gestão da Tecnologia da Informação"
 
-LISTA_CURSO_GRUPO = [40, 72, 79, 4003, 4004, 4005, 4006, 4007, 5809]
+LISTA_CURSO_GRUPO = [72, 79, 4003, 4004, 4005, 4006]
 
 
 # Variável que representa os cursos
@@ -53,11 +53,11 @@ VAR_RENDA = 'RENDA'
 PROVA_NOTABRUTA = 'PROVA_NOTABRUTA'
 
 # Bases de dados
-BASES_DE_DADOS = {'2005': 'base_de_dados/microdados_enade_2005.csv', 
-                    '2008': 'base_de_dados/microdados_enade_2008.csv', 
-                    '2011': 'base_de_dados/MICRODADOS_ENADE_2011.txt', 
-                    '2014': 'base_de_dados/MICRODADOS_ENADE_2014.txt', 
-                    '2017': 'base_de_dados/MICRODADOS_ENADE_2017.txt'}
+BASES_DE_DADOS = {'2005': 'base_de_dados/alter/AA/microdados_enade_2005_alt.csv', 
+                    '2008': 'base_de_dados/alter/AA/microdados_enade_2008_alt.csv', 
+                    '2011': 'base_de_dados/alter/AA/microdados_enade_2011_alt.csv', 
+                    '2014': 'base_de_dados/alter/AA/microdados_enade_2014_alt.csv', 
+                    '2017': 'base_de_dados/alter/AA/MICRODADOS_ENADE_2017.txt'}
 
 # Arquivo com os rótulos novos a considerar
 ARQUIVO_ROTULOS_A_CONSIDERAR = 'rotulos_colunas/rotulos_colunas_todas_bases.xlsx'
