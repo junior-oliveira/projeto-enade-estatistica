@@ -1,4 +1,10 @@
 VARIÁVEIS ADICIONADAS
+RENDA
+Intervalo
+    A = Até 3 salários mínimos
+    B = De 3 a 10 salários mínimos
+    C = De 10 a 30 salários mínimos
+    D = Mais de 30 salários mínimos 
 
 SITUACAO_TRABALHO
 Foi considerado e padronizado o seguinte intervalo:
@@ -36,5 +42,6 @@ Intervalo considerado:
 HORAS_ESTUDO
 Intervalo considerado (foi o único intervalo possível para todas as bases):
     A = Nenhuma, apenas assisto às aulas.
-    B = Estuda pelo menos uma hora, excetuando aulas.
+    B = Estuda de 1 a 8 horas por semana.
+    B = Mais de 8 horas por semana.
     . = nulos, outros.
